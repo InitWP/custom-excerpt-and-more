@@ -1,0 +1,9 @@
+{
+	"name": "Custom excerpt length and more",
+	"type": "module",
+	"version": "0.1.0",
+	"description": "Custom excerpt length in characters, custom '...' string and custom 'read more' string",
+	"files": [
+		"custom-excerpt-and-more.php"
+    ]
+}
