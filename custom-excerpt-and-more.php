@@ -3,7 +3,7 @@
  * Custom excerpt length in characters
  * Can be simpler when this ticket is resolved: https://core.trac.wordpress.org/ticket/36934
  */
-function TEXTDOMAIN_get_the_excerpt($charlength = 230, $text = '', $post_id_or_object = null ) {
+function NAMESPACE_get_the_excerpt($charlength = 230, $text = '', $post_id_or_object = null ) {
 	global $post;
 
 	// if no post id/object is passed we are likely inside a loop and so we can use the global $post variable
@@ -23,7 +23,7 @@ function TEXTDOMAIN_get_the_excerpt($charlength = 230, $text = '', $post_id_or_o
 
 			// now we can trim down the text to the preferred amount of characters
 			if (strlen($post_content) > $charlength) {
-				$trimmed_post_content = substr($post_content, 0, $charlength) . TEXTDOMAIN_excerpt_more('');
+				$trimmed_post_content = substr($post_content, 0, $charlength) . NAMESPACE_excerpt_more('');
 			} else {
 				$trimmed_post_content = $post_content;
 			}
@@ -32,7 +32,7 @@ function TEXTDOMAIN_get_the_excerpt($charlength = 230, $text = '', $post_id_or_o
 	// when we do get text passed, we just trim down the text
 	} else {
 		if (strlen($text) > $charlength) {
-			$trimmed_post_content = substr($text, 0, $charlength) . TEXTDOMAIN_excerpt_more('');
+			$trimmed_post_content = substr($text, 0, $charlength) . NAMESPACE_excerpt_more('');
 		} else {
 			$trimmed_post_content = $text;
 		}
@@ -45,15 +45,15 @@ function TEXTDOMAIN_get_the_excerpt($charlength = 230, $text = '', $post_id_or_o
 /*
  * Custom excerpt more string
  */
-function TEXTDOMAIN_excerpt_more( $more ) {
+function NAMESPACE_excerpt_more( $more ) {
 	return '...';
 }
-add_filter( 'excerpt_more', 'TEXTDOMAIN_excerpt_more' );
+add_filter( 'excerpt_more', 'NAMESPACE_excerpt_more' );
 
 /*
  * Read more text
  */
-function TEXTDOMAIN_read_more_string($cpt = '') {
+function NAMESPACE_read_more_string($cpt = '') {
 
 	if ($cpt == 'cpt_slug_here') {
 		return __('Lees verder cpt', 'TEXTDOMAIN');
